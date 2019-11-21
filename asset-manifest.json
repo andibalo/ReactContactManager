@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/ReactContactManager/static/css/main.34de6062.chunk.css",
+    "main.js": "/ReactContactManager/static/js/main.b68e8a73.chunk.js",
+    "main.js.map": "/ReactContactManager/static/js/main.b68e8a73.chunk.js.map",
+    "runtime-main.js": "/ReactContactManager/static/js/runtime-main.91274915.js",
+    "runtime-main.js.map": "/ReactContactManager/static/js/runtime-main.91274915.js.map",
+    "static/css/2.b0bb7f2c.chunk.css": "/ReactContactManager/static/css/2.b0bb7f2c.chunk.css",
+    "static/js/2.e17c8ce1.chunk.js": "/ReactContactManager/static/js/2.e17c8ce1.chunk.js",
+    "static/js/2.e17c8ce1.chunk.js.map": "/ReactContactManager/static/js/2.e17c8ce1.chunk.js.map",
+    "index.html": "/ReactContactManager/index.html",
+    "precache-manifest.8de29b3dbb47cae4f68e3015ace76040.js": "/ReactContactManager/precache-manifest.8de29b3dbb47cae4f68e3015ace76040.js",
+    "service-worker.js": "/ReactContactManager/service-worker.js",
+    "static/css/2.b0bb7f2c.chunk.css.map": "/ReactContactManager/static/css/2.b0bb7f2c.chunk.css.map",
+    "static/css/main.34de6062.chunk.css.map": "/ReactContactManager/static/css/main.34de6062.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.91274915.js",
+    "static/css/2.b0bb7f2c.chunk.css",
+    "static/js/2.e17c8ce1.chunk.js",
+    "static/css/main.34de6062.chunk.css",
+    "static/js/main.b68e8a73.chunk.js"
+  ]
+}
