@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from "react";
-
+import { deleteContact } from "../actions/actionTypes";
+import { connect } from "react-redux";
 class Contact extends Component {
   constructor() {
     super();
@@ -24,12 +25,16 @@ class Contact extends Component {
 
   //UPDATE a state in a component from another component
   //The event handler in this component triggers a Function that runs in the parent component
-  onDeleteClick = () => {
-    this.props.deleteClickHandler();
+  // onDeleteClick = () => {
+  //   this.props.deleteClickHandler();
+  // };
+
+  onDeleteClick = id => {
+    this.props.deleteContact(id);
   };
 
   render() {
-    const { name, email, phone } = this.props.contact;
+    const { id, name, email, phone } = this.props.contact;
     const { onShow } = this.state;
 
     return (
@@ -44,7 +49,7 @@ class Contact extends Component {
             ></i>
 
             <i
-              onClick={this.onDeleteClick}
+              onClick={this.onDeleteClick.bind(this, id)}
               className="fas fa-times mt-2 mr-2"
               style={{ cursor: "pointer", float: "right", color: "#fe3939" }}
             ></i>
@@ -68,4 +73,4 @@ class Contact extends Component {
   }
 }
 
-export default Contact;
+export default connect(null, { deleteContact })(Contact);

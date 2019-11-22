@@ -1,48 +1,22 @@
 import React, { Component, Fragment } from "react";
 import Contact from "./Contact";
 
+import { getContacts } from "../actions/actionTypes";
+import { connect } from "react-redux";
 class Contacts extends Component {
-  constructor() {
-    super();
-    this.state = {
-      contacts: [
-        {
-          id: 1,
-          name: "Andi Balo",
-          email: "andibalo213@gmail.com",
-          phone: "029891292"
-        },
-        {
-          id: 2,
-          name: "John Doe",
-          email: "andibalo213@gmail.com",
-          phone: "029891292"
-        },
-        {
-          id: 3,
-          name: "Jane Doe",
-          email: "andibalo213@gmail.com",
-          phone: "029891292"
-        }
-      ]
-    };
-  }
+  // componentDidMount() {
+  //   //AXIOS.GET automatically parses the incoming data to json so we dont have to parse it first
+  //   //FETCH, we have to parse the incoming res data to json using res.json()
+  //   axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
+  //     this.setState({
+  //       contacts: res.data
+  //     });
+  //   });
+  // }
 
   //returning a component/jsx element from a map loop requires it to be put inside of a () instead of {}
   render() {
-    const { contacts } = this.state;
-
-    const deleteContact = id => {
-      console.log(id);
-
-      const newContacts = contacts.filter(contact => {
-        return id !== contact.id;
-      });
-
-      this.setState({
-        contacts: newContacts
-      });
-    };
+    const { contacts } = this.props;
 
     return (
       <Fragment>
@@ -52,11 +26,7 @@ class Contacts extends Component {
           </h1>
           <div>
             {contacts.map(contact => (
-              <Contact
-                deleteClickHandler={deleteContact.bind(this, contact.id)}
-                key={contact.id}
-                contact={contact}
-              />
+              <Contact key={contact.id} contact={contact} />
             ))}
           </div>
         </div>
@@ -65,4 +35,8 @@ class Contacts extends Component {
   }
 }
 
-export default Contacts;
+const mapStateToProps = state => ({
+  contacts: state.contact.contacts
+});
+
+export default connect(mapStateToProps, { getContacts })(Contacts);

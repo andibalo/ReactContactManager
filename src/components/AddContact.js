@@ -1,9 +1,12 @@
 import React, { Component, Fragment } from "react";
-
+import uuid from "uuid";
+import { connect } from "react-redux";
+import { addContact } from "../actions/actionTypes";
 class AddContact extends Component {
   constructor() {
     super();
     this.state = {
+      id: uuid(),
       name: "",
       email: "",
       phone: ""
@@ -23,8 +26,25 @@ class AddContact extends Component {
   };
 
   onSubmitHandler = e => {
+    const { id, name, email, phone } = this.state;
     e.preventDefault();
-    console.log(this.state);
+
+    const newContact = {
+      id,
+      name,
+      email,
+      phone
+    };
+
+    this.props.addContact(newContact);
+
+    this.setState({
+      name: "",
+      email: "",
+      phone: ""
+    });
+
+    this.props.history.push("/");
   };
 
   render() {
@@ -47,6 +67,7 @@ class AddContact extends Component {
                   className="form-control form-control-lg"
                   placeholder="Enter Name"
                   value={name}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -58,6 +79,7 @@ class AddContact extends Component {
                   className="form-control form-control-lg"
                   placeholder="Enter Email"
                   value={email}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -69,6 +91,7 @@ class AddContact extends Component {
                   className="form-control form-control-lg"
                   placeholder="Enter Phone"
                   value={phone}
+                  required
                 />
               </div>
               <input
@@ -84,4 +107,4 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+export default connect(null, { addContact })(AddContact);
