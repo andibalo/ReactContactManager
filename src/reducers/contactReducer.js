@@ -5,6 +5,7 @@ import {
 } from "../actions/constants";
 
 import uuid from "uuid";
+
 const initialState = {
   contacts: [
     {
@@ -22,7 +23,7 @@ const initialState = {
     {
       id: uuid(),
       name: "Andi Usman Balo",
-      email: "andibalo213@gmail.com",
+      email: "andiba3@gmail.com",
       phone: "902190210"
     }
   ]
@@ -32,7 +33,8 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case GET_CONTACTS:
       return {
-        ...state
+        ...state,
+        contacts: action.payload
       };
     case ADD_CONTACTS:
       return {

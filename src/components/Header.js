@@ -9,7 +9,7 @@ const Header = ({ brand }) => {
     <Fragment>
       <nav className="navbar navbar-expand-sm bg-primary navbar-dark mb-4">
         <div className="container">
-          <Link to="/" className="navbar-brand">
+          <Link to="/ReactContactManager" className="navbar-brand">
             <i className="fas fa-address-book mr-2"></i>
             {brand}
           </Link>
@@ -18,7 +18,7 @@ const Header = ({ brand }) => {
               <li className="nav-item">
                 <Link
                   onClick={onClickHandler}
-                  to="/"
+                  to="/ReactContactManager"
                   className="nav-link active"
                 >
                   <i className="fas fa-home px-2"></i>
@@ -26,13 +26,16 @@ const Header = ({ brand }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contact/add" className="nav-link ">
+                <Link
+                  to="/ReactContactManager/contact/add"
+                  className="nav-link "
+                >
                   <i className="fas fa-plus px-2"></i>
                   Add Contact
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/about" className="nav-link ">
+                <Link to="/ReactContactManager/about" className="nav-link ">
                   <i className="fas fa-question px-2"></i>
                   About
                 </Link>
